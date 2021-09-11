@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  rabbit:
+    build: .
+    image: rabbitmq:local
+    container_name: rabbit
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 15675:15675
+    volumes:
+      - "./config/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
+      - "./config/definitions.json:/etc/rabbitmq/definitions.json"
+
